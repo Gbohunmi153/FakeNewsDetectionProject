@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" type="text/css" href="static/css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" type="text/css" href="static/css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" type="text/css" href="static/css/magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" type="text/css" href="static/css/flexslider.css">
+
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" type="text/css" href="static/css/owl.carousel.min.css">
+	<link rel="stylesheet" type="text/css" href="static/css/owl.theme.default.min.css">
+	
+	<!-- Flaticons  -->
+	<link rel="stylesheet" type="text/css" href="static/fonts/flaticon/font/flaticon.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" type="text/css" href="static/css/style.css">
+	<script src="../static/js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  </head>
+  <body style="background: -webkit-linear-gradient(left, #3931af, #16e35d);;">
+	
+	
+	
+
+	<div id="page">
+		<nav class="colorlib-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-2 text-center">
+							<div id="colorlib-logo"><a href="/">FAKENEWS</a></div>
+						</div>
+						<div class="col-md-10 text-right menu-1">
+							<header >
+								<section>
+								  <div class ="topnav" onload="startTimer()">
+									<a class="active" href="#home">Home</a>
+									<a href="#news">News</a>
+									<a href="#contact">Contact</a>
+									<a href="#about">About</a>
+								  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<br>
+		<br>
+    <div class="input-group" style="margin: auto;">
+
+      <form action="{{ url_for('predict')}}" method="POST" style="margin-left: auto; margin-right: auto;">
+      <h4 style="margin-top:10px; margin-bottom:10px; text-align: center;"> 👇 Enter News Article  Here 🧐</h4>
+      <!-- <input type="text" name="comment"/> -->
+      
+      <textarea class="form-control" name="message" rows="5" cols="180" aria-label="With textarea" ></textarea>
+      <br/>
+	<div style="text-align: center;">
+      <input type="submit" class="btn btn-dark" style="margin-left: auto;margin-right: auto; justify-content: center;"  value=" Predict " >
+       </div>
+	</div>   
+      </form>
+      
+    </div>
+   
+    <div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	{% if might %}
+      <p style="text-align: center;">This news is {{ might }}.</p><br>
+    {% endif %}
+	{% if pred == "True" %}
+    <p style="text-align: center; color: green;">This News is true.</p>
+{% elif pred == "False" %}
+    <p style="text-align: center;color: red;">This News is false.</p>
+{% endif %}
+	<footer id="colorlib-footer">
+		<div class="copy">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<p>
+							<small class="block"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small><br>
+							
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+    <!-- jQuery -->
+	<script src="static/js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="static/js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="static/js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="static/js/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="static/js/jquery.stellar.min.js"></script>
+	<!-- Flexslider -->
+	<script src="static/js/jquery.flexslider-min.js"></script>
+	<!-- Owl carousel -->
+	<script src="static/js/owl.carousel.min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="static/js/jquery.magnific-popup.min.js"></script>
+	<script src="static/js/magnific-popup-options.js"></script>
+	<!-- Counters -->
+	<script src="static/js/jquery.countTo.js"></script>
+	<!-- Main -->
+	<script src="static/js/main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>
